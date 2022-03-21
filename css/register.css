@@ -1,12 +1,12 @@
-#login {
+#register {
   display: flex;
 }
 
 .form__card--logo {
   display: flex;
   align-items: center;
-  justify-content: end;
-  margin-right: 50px;
+  justify-content: start;
+  margin-left: 50px;
 }
 
 .form__card--logo img {

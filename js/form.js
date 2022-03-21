@@ -1,10 +1,10 @@
 // Variable
-const loginInputs = document.querySelectorAll(".login__input");
+const inputs = document.querySelectorAll(".form__input");
 const iconPassword = document.querySelector(".icon__password");
 const iconPasswordShow = document.querySelector(".icon__password--show");
 const iconPasswordHiden = document.querySelector(".icon__password--hiden");
-const imgSliders = document.querySelectorAll(".login__card--img__item");
-const dotsContainer = document.querySelector(".login__card--dots");
+const imgSliders = document.querySelectorAll(".form__card--img__item");
+const dotsContainer = document.querySelector(".form__card--dots");
 
 // Function
 const handleShowIcon = function (element, status) {
@@ -13,7 +13,7 @@ const handleShowIcon = function (element, status) {
 
 // Event Listener
 // Handle Input
-loginInputs.forEach(function (input) {
+inputs.forEach(function (input) {
   input.addEventListener("click", function (e) {
     // Get label
     const label = e.target.nextElementSibling;
@@ -24,7 +24,7 @@ loginInputs.forEach(function (input) {
     label.classList.add("active");
 
     // Handle icon password
-    if (input.getAttribute("id") === "login__password") {
+    if (input.getAttribute("id") === "form__password") {
       // Check input value
       if (input.value === "") {
         iconPassword.style.display = "none";
@@ -69,14 +69,14 @@ iconPasswordShow.addEventListener("click", (e) => {
   e.preventDefault();
   handleShowIcon(iconPasswordShow, "none");
   handleShowIcon(iconPasswordHiden, "block");
-  document.querySelector("#login__password").setAttribute("type", "password");
+  document.querySelector("#form__password").setAttribute("type", "password");
 });
 
 iconPasswordHiden.addEventListener("click", (e) => {
   e.preventDefault();
   handleShowIcon(iconPasswordShow, "block");
   handleShowIcon(iconPasswordHiden, "none");
-  document.querySelector("#login__password").setAttribute("type", "text");
+  document.querySelector("#form__password").setAttribute("type", "text");
 });
 
 // Slider
@@ -85,13 +85,13 @@ const slider = function () {
 
   const createDots = function () {
     imgSliders.forEach(function (img, index) {
-      dotsContainer.insertAdjacentHTML("beforeend", `<button class="login__card--dot" data-slide="${index}"></button>`);
+      dotsContainer.insertAdjacentHTML("beforeend", `<button class="form__card--dot" data-slide="${index}"></button>`);
     });
   };
 
   const activeDot = function (activeDot) {
-    document.querySelectorAll(".login__card--dot").forEach((dot, item) => dot.classList.remove("active"));
-    document.querySelector(`.login__card--dot[data-slide="${activeDot}"]`).classList.add("active");
+    document.querySelectorAll(".form__card--dot").forEach((dot, item) => dot.classList.remove("active"));
+    document.querySelector(`.form__card--dot[data-slide="${activeDot}"]`).classList.add("active");
   };
 
   const goToSlide = function (activeSlide) {
@@ -132,7 +132,7 @@ const slider = function () {
 
   // Event handler
   dotsContainer.addEventListener("click", function (e) {
-    if (e.target.classList.contains("login__card--dot")) {
+    if (e.target.classList.contains("form__card--dot")) {
       const slide = e.target.dataset.slide;
       goToSlide(slide);
       activeDot(slide);
