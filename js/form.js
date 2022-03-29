@@ -12,7 +12,7 @@ const handleShowIcon = function (element, status) {
 };
 
 // Event Listener
-// Handle Input
+// Handle Input (Animation)
 inputs.forEach(function (input) {
   input.addEventListener("click", function (e) {
     // Get label
@@ -65,6 +65,7 @@ inputs.forEach(function (input) {
   });
 });
 
+// Show and Hide icon password
 iconPasswordShow.addEventListener("click", (e) => {
   e.preventDefault();
   handleShowIcon(iconPasswordShow, "none");

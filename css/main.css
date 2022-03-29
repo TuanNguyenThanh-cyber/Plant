@@ -172,10 +172,15 @@ ul {
   left: 15px;
   background-color: var(--red);
   border-radius: 5px;
-  padding: 10px 5px;
+  width: 52px;
+  height: 52px;
 }
 
 .card__hot--text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 18px;
   font-weight: bold;
   color: #fff;
@@ -187,8 +192,8 @@ ul {
   background-color: #fff;
   border-radius: 50%;
   position: absolute;
-  top: 2px;
-  right: 2px;
+  top: 4px;
+  right: 4px;
 }
 
 .card__menu {
@@ -211,7 +216,7 @@ ul {
   transition: all 0.5s;
 }
 
-.card__menu--btn__active {
+.card__menu--btn.active {
   background-color: var(--dark-green);
 }
 
@@ -219,7 +224,7 @@ ul {
   color: var(--light-grey);
 }
 
-.card__menu--icon__active {
+.card__menu--icon.active {
   color: #fff;
 }
 

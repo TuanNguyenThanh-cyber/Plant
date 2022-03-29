@@ -1,3 +1,5 @@
+/* Form */
+
 .form__left {
   background-color: var(--light-green);
   padding: 50px 100px;
@@ -122,10 +124,6 @@
   color: var(--dark-green);
 }
 
-.btn__sign--in {
-  padding: 20px 70px;
-}
-
 .btn__google {
   display: flex;
   align-items: center;
@@ -202,4 +200,73 @@
 
 .form__card--dot.active {
   background-color: var(--circle-green);
+}
+
+/* Form notice */
+.notification__container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  padding: 0 15px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.form__notice {
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: rgb(151 167 195 / 50%) 5px 3px 10px 2px, rgb(255 255 255) -5px -5px 10px 5px;
+  transform: translateX(calc(100% + 25px));
+  transition: all 0.5s;
+  opacity: 0;
+  cursor: pointer;
+  margin: 15px;
+}
+
+.form__notice--error {
+  background-color: var(--red);
+}
+
+.form__notice--success {
+  background-color: var(--circle-green);
+}
+
+.form__notice.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.form__notice--container {
+  display: flex;
+  align-items: center;
+}
+
+.button__notice {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+
+.button__notice i {
+  font-size: 16px;
+}
+
+.form__notice--title {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 600;
+}
+
+.form__notice--text {
+  font-size: 16px;
+  color: #fff;
 }

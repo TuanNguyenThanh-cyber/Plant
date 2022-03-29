@@ -1,28 +1,28 @@
 // Declare variable here
-const cardMenuBtn = document.querySelectorAll(".card__menu--btn");
+const cardMenuBtns = document.querySelectorAll(".card__menu--btn");
 const cardMenuIcon = document.querySelectorAll(".card__menu--icon");
 const headerSitemap = document.querySelectorAll(".header__sitemap");
 
 // Card (NEW ARRIVALS)
-cardMenuBtn.forEach(function (btn) {
-  btn.addEventListener("click", function (e) {
-    const clicked = e.target.closest(".card__menu--btn");
+cardMenuBtns.forEach((cardButton) => {
+  cardButton.addEventListener("click", function (e) {
+    const buttonClicked = e.target.closest(".card__menu--btn");
+    const allButtonsInRecentCard = e.target.closest(".card__menu").querySelectorAll(".card__menu--btn");
 
-    if (!clicked) return;
-
-    //   Remove active classes
-    cardMenuBtn.forEach((btn) => {
-      btn.classList.remove("card__menu--btn__active");
-      btn.style.pointerEvents = "auto";
+    allButtonsInRecentCard.forEach((item) => {
+      // Active button and icon clicked
+      if (item === buttonClicked) {
+        buttonClicked.classList.toggle("active");
+        buttonClicked.children[0].classList.toggle("active");
+        buttonClicked.style.pointerEvents = "none";
+      }
+      // Remove another buttons active
+      else {
+        item.classList.remove("active");
+        item.children[0].classList.remove("active");
+        item.style.pointerEvents = "auto";
+      }
     });
-    cardMenuIcon.forEach((icon) => icon.classList.remove("card__menu--icon__active"));
-
-    // Active btn and icon
-    clicked.classList.add("card__menu--btn__active");
-    clicked.children[0].classList.add("card__menu--icon__active");
-
-    //   Disable hover
-    clicked.style.pointerEvents = "none";
   });
 });
 

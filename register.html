@@ -31,77 +31,82 @@
 
 <body>
     <section id="register">
-        <div class="form__left col-6">
-            <div class="form__card">
-                <div class="form__card--logo">
-                    <img src="./img/LOGO-02.png" alt="">
+        <div class="form__container">
+            <div class="form__left col-6">
+                <div class="form__card">
+                    <div class="form__card--logo">
+                        <img src="./img/LOGO-02.png" alt="">
+                    </div>
+                    <div class="form__card--img__list">
+                        <img src="./img/plant2.png" alt="" class="form__card--img__item">
+                        <img src="./img/plant13.png" alt="" class="form__card--img__item">
+                        <img src="./img/plant12.png" alt="" class="form__card--img__item">
+                    </div>
+                    <div class="form__card--content">
+                        <h2 class="form__card--title">Let's Be Friends</h2>
+                        <div style="margin: 25px 0;">
+                            <p class="form__card--text">Plants become bright and beautiful when they </p>
+                            <p class="form__card--text">receive care, love, kindness, and a strong</p>
+                            <p class="form__card--text">connection with their caretaker.</p>
+                        </div>
+                    </div>
+                    <div class="form__card--dots"></div>
                 </div>
-                <div class="form__card--img__list">
-                    <img src="./img/plant2.png" alt="" class="form__card--img__item">
-                    <img src="./img/plant13.png" alt="" class="form__card--img__item">
-                    <img src="./img/plant12.png" alt="" class="form__card--img__item">
-                </div>
-                <div class="form__card--content">
-                    <h2 class="form__card--title">Let's Be Friends</h2>
-                    <div style="margin: 25px 0;">
-                        <p class="form__card--text">Plants become bright and beautiful when they </p>
-                        <p class="form__card--text">receive care, love, kindness, and a strong</p>
-                        <p class="form__card--text">connection with their caretaker.</p>
+            </div>
+            <div class="form__right col-6">
+                <h2 class="form__title">CREATE NEW ACCOUNT</h2>
+                <p class="form__text">Join our community</p>
+                <div class="form">
+                    <div class="form__row">
+                        <input type="text" id="form__name" class="form__input">
+                        <label for="form__name" class="form__label">Full Name</label>
+                    </div>
+                    <div class="form__row">
+                        <input type="text" id="form__email" class="form__input">
+                        <label for="form__email" class="form__label">Email ID</label>
+                    </div>
+                    <div class="form__row">
+                        <input type="tel" id="form__mobile--number" class="form__input">
+                        <label for="form__mobile--number" class="form__label">Mobile number</label>
+                    </div>
+                    <div class="form__row">
+                        <input type="password" id="form__password" class="form__input">
+                        <label for="form__password" class="form__label">Password</label>
+                        <div class="icon__password" style="display: none;">
+                            <i class="fa-solid fa-eye icon__password--show" style="display: none;"></i>
+                            <i class="fa-solid fa-eye-slash icon__password--hiden"></i>
+                        </div>
+                    </div>
+                    <div class="div__center">
+                        <button class="btn__emerge btn__sign--up">Sign up</button>
+                    </div>
+                    <div class="div__center" style="margin: 30px 0;">
+                        <span class="form__text">- or continue with -</span>
+                    </div>
+                    <div class="div__space--between">
+                        <button class="btn__emerge btn__google">
+                            <img src="./img/google.png" alt="" style="margin-right: 10px;">
+                            <span class="form__text">Google</span>
+                        </button>
+                        <button class="btn__emerge btn__apple">
+                            <img src="./img/apple.png" alt="" style="margin-right: 10px;">
+                            <span class="form__text">Apple</span>
+                        </button>
+                    </div>
+                    <div class="div__center" style="margin: 30px 0;">
+                        <span class="form__text">Already have an account?
+                            <a href="./login.html" class="sign__up"> Sign in</a>
+                        </span>
                     </div>
                 </div>
-                <div class="form__card--dots"></div>
             </div>
         </div>
-        <div class="form__right col-6">
-            <h2 class="form__title">CREATE NEW ACCOUNT</h2>
-            <p class="form__text">Join our community</p>
-            <form action="" class="form">
-                <div class="form__row">
-                    <input type="text" id="form__name" class="form__input">
-                    <label for="form__name" class="form__label">Name</label>
-                </div>
-                <div class="form__row">
-                    <input type="text" id="form__email" class="form__input">
-                    <label for="form__email" class="form__label">Email ID</label>
-                </div>
-                <div class="form__row">
-                    <input type="tel" id="form__mobile--number" class="form__input">
-                    <label for="form__mobile--number" class="form__label">Mobile number</label>
-                </div>
-                <div class="form__row">
-                    <input type="password" id="form__password" class="form__input">
-                    <label for="form__password" class="form__label">Password</label>
-                    <div class="icon__password" style="display: none;">
-                        <i class="fa-solid fa-eye icon__password--show" style="display: none;"></i>
-                        <i class="fa-solid fa-eye-slash icon__password--hiden"></i>
-                    </div>
-                </div>
-                <div class="div__center">
-                    <button class="btn__emerge btn__sign--in">Sign up</button>
-                </div>
-                <div class="div__center" style="margin: 30px 0;">
-                    <span class="form__text">- or continue with -</span>
-                </div>
-                <div class="div__space--between">
-                    <button class="btn__emerge btn__google">
-                        <img src="./img/google.png" alt="" style="margin-right: 10px;">
-                        <span class="form__text">Google</span>
-                    </button>
-                    <button class="btn__emerge btn__apple">
-                        <img src="./img/apple.png" alt="" style="margin-right: 10px;">
-                        <span class="form__text">Apple</span>
-                    </button>
-                </div>
-                <div class="div__center" style="margin: 30px 0;">
-                    <span class="form__text">Already have an account?
-                        <a href="./login.html" class="sign__up"> Sign in</a>
-                    </span>
-                </div>
-            </form>
+        <div class="notification__container">
         </div>
     </section>
 
     <script src="./js/form.js"></script>
+    <script src="./js/register.js"></script>
 </body>
 
 </html>

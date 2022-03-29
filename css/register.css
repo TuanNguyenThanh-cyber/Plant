@@ -1,5 +1,16 @@
 #register {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.form__container {
   display: flex;
+}
+
+.btn__sign--up {
+  padding: 20px 70px;
 }
 
 .form__card--logo {
