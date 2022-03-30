@@ -16,7 +16,7 @@ const renderCardItem = function (currentPagination) {
     productRow.insertAdjacentHTML(
       "beforeend",
       `
-    <div class="col-4 div__center">
+    <div class="col-xl-4 col-md-6 div__center">
       <div class="card">
         <div class="card__img">
             <img src="${plant.img}" loading="lazy" class="card-img-top" alt="${plant.name}" />
@@ -38,10 +38,19 @@ const renderCardItem = function (currentPagination) {
                     <i class="fa-solid fa-share-nodes card__menu--icon"></i>
                 </button>
             </div>
+            <button class="card__button--like">
+              <i class="fa-regular fa-heart icon__like--outline" style="display: block;"></i>
+              <i class="fa-solid fa-heart icon__like--solid" style="display: none;"></i>
+            </button>
         </div>
         <div class="card-body">
+          <div class="card__detail">
             <h5 class="card-name">${plant.name}</h5>
             <p class="card-price">${plant.price}</p>
+          </div>
+          <button class="card__button--add">
+            <i class="fa-solid fa-plus icon__add"></i>
+          </button>
         </div>
       </div>
     </div>    
@@ -334,4 +343,29 @@ init();
 const introButton = document.querySelector(".intro__bottom--btn");
 introButton.addEventListener("click", function (e) {
   window.location.href = "./contact.html";
+});
+
+// Button liked and add (card product)
+const cardButtonLikes = document.querySelectorAll(".card__button--like");
+const cardButtonAdds = document.querySelectorAll(".card__button--add");
+
+cardButtonLikes.forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    const iconLikeOutline = e.target.closest(".card__button--like").children[0];
+    const iconLikeSolid = e.target.closest(".card__button--like").children[1];
+
+    if (iconLikeOutline.style.display === "block") {
+      iconLikeOutline.style.display = "none";
+      iconLikeSolid.style.display = "block";
+    } else if (iconLikeOutline.style.display === "none") {
+      iconLikeOutline.style.display = "block";
+      iconLikeSolid.style.display = "none";
+    }
+  });
+});
+
+cardButtonAdds.forEach((btn) => {
+  btn.addEventListener("click", function (e) {
+    e.target.closest(".card__button--add").classList.toggle("active");
+  });
 });

@@ -339,3 +339,37 @@
   font-weight: bold;
   color: var(--dark-green);
 }
+
+/* Responsive */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /* Card */
+  .card__menu {
+    display: none;
+  }
+
+  .card-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .card__button--add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card__button--like {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card-name {
+    text-align: left;
+  }
+
+  .card-price {
+    text-align: left;
+  }
+}

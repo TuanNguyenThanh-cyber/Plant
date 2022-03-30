@@ -24,6 +24,9 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- CSS -->
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/box.css">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/about.css">
 </head>
@@ -35,15 +38,13 @@
         <section id="header">
             <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand" href="#">
+                    <button class="header__button--toggle">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="./home.html">
                         <img src="./img/LOGO-02.png" alt="" class="logo">
                     </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="navbar-menu">
                         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                             <li class="nav-item">
                                 <a class="header__sitemap" href="./home.html">Home</a>
@@ -66,6 +67,26 @@
                             </a>
                         </div>
                     </div>
+                    <div class="header__toggle--menu hidden">
+                        <ul>
+                            <li>
+                                <a class="header__sitemap" href="./home.html">Home</a>
+                            </li>
+                            <li>
+                                <a class="header__sitemap active" href="./about.html">About us</a>
+                            </li>
+                            <li>
+                                <a class="header__sitemap" href="./product.html">Our products</a>
+                            </li>
+                            <li>
+                                <a class="header__sitemap" href="./contact.html">Contact us</a>
+                            </li>
+                        </ul>
+                        <div class="header__toggle--menu__copyright">
+                            <p>Copyright © 2022 Plant Shop By Kyray Vy. All Rights Reserved.</p>
+                        </div>
+                    </div>
+                    <div class="overlay hidden"></div>
                 </nav>
             </div>
         </section>
@@ -73,7 +94,7 @@
         <!-- Introduction -->
         <section id="intro">
             <div class="container intro__container">
-                <div class="row intro__row">
+                <div class="intro__row">
                     <div class="col-6 d-flex align-items-center justify-content-center">
                         <div class="intro__content">
                             <h2 class="intro__title">WHO WE ARE</h2>
@@ -93,14 +114,14 @@
                         </div>
                     </div>
                     <div class="col-6">
-                        <div class="intro__img">
+                        <div class="intro__img intro__img--left">
                             <img src="./img/Artboard–3.png" alt="">
                         </div>
                     </div>
                 </div>
-                <div class="row intro__row">
+                <div class="intro__row">
                     <div class="col-6">
-                        <div class="intro__img">
+                        <div class="intro__img intro__img--right">
                             <img src="./img/Artboard–4.png" alt="">
                         </div>
                     </div>
@@ -127,7 +148,7 @@
         <section id="rating">
             <div class="container">
                 <div class="rating__row">
-                    <div class="box" style="padding: 30px 50px;">
+                    <div class="box">
                         <div class="box__icon">
                             <i class="fa-solid fa-tree"></i>
                         </div>
@@ -140,7 +161,7 @@
                             people a collection of articles from The Sill’s team of Plant Expert
                         </blockquoten>
                     </div>
-                    <div class="box" style="padding: 30px 50px;">
+                    <div class="box">
                         <div class="box__icon">
                             <i class="fa-solid fa-leaf"></i>
                         </div>
@@ -153,7 +174,7 @@
                             people a collection of articles from The Sill’s team of Plant Expert
                         </blockquoten>
                     </div>
-                    <div class="box" style="padding: 30px 50px;">
+                    <div class="box">
                         <div class="box__icon">
                             <i class="fa-brands fa-pagelines"></i>
                         </div>
