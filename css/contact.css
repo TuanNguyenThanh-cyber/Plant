@@ -25,6 +25,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  column-gap: 50px;
 }
 
 .info__box {
@@ -174,4 +175,21 @@
 .connected__btn {
   margin-top: 40px;
   padding: 20px 45px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .info__title {
+    font-size: 32px;
+  }
+  .info__row {
+    flex-direction: column;
+    row-gap: 50px;
+    width: 60%;
+  }
+  .connected__title {
+    font-size: 32px;
+  }
+  .connected__row {
+    width: 100%;
+  }
 }

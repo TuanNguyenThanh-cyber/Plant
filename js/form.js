@@ -5,6 +5,7 @@ const iconPasswordShow = document.querySelector(".icon__password--show");
 const iconPasswordHiden = document.querySelector(".icon__password--hiden");
 const imgSliders = document.querySelectorAll(".form__card--img__item");
 const dotsContainer = document.querySelector(".form__card--dots");
+const formCard = document.querySelector(".form__card");
 
 // Function
 const handleShowIcon = function (element, status) {

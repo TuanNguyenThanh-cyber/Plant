@@ -8,11 +8,11 @@ let typeOfFilter = "All";
 // Render Card Item
 const productRow = document.querySelector(".product__row");
 
-const renderCardItem = function (currentPagination) {
+const renderCardItem = function (currentPagination, array) {
   // Reset HTML productRow first
   productRow.innerHTML = "";
   // Loop array and insert HTML
-  arrayProduct[currentPagination - 1].forEach((plant) => {
+  array[currentPagination - 1].forEach((plant) => {
     productRow.insertAdjacentHTML(
       "beforeend",
       `
@@ -88,6 +88,34 @@ const handleCardMenuButtons = function () {
   });
 };
 
+const handleButtonLikeAndAdd = function () {
+  // Button liked and add (card product)
+  const cardButtonLikes = document.querySelectorAll(".card__button--like");
+  const cardButtonAdds = document.querySelectorAll(".card__button--add");
+
+  cardButtonLikes.forEach((btn) => {
+    btn.addEventListener("click", function (e) {
+      console.log("LOG");
+      const iconLikeOutline = e.target.closest(".card__button--like").children[0];
+      const iconLikeSolid = e.target.closest(".card__button--like").children[1];
+
+      if (iconLikeOutline.style.display === "block") {
+        iconLikeOutline.style.display = "none";
+        iconLikeSolid.style.display = "block";
+      } else if (iconLikeOutline.style.display === "none") {
+        iconLikeOutline.style.display = "block";
+        iconLikeSolid.style.display = "none";
+      }
+    });
+  });
+
+  cardButtonAdds.forEach((btn) => {
+    btn.addEventListener("click", function (e) {
+      e.target.closest(".card__button--add").classList.toggle("active");
+    });
+  });
+};
+
 // =============================================================== //
 // Pagination
 
@@ -159,30 +187,28 @@ const activeButton = function (currentPagination) {
   });
 };
 
-const handleArrayProductSortByAlphabet = function (type) {
+const handleArrayProductSortByAlphabet = function (type, array) {
   // Type: Asc and desc
   switch (type) {
     case "asc":
-      const arrayFlattenAsc = arrayProduct.flat().sort((a, b) => {
+      const arrayFlattenAsc = array.flat().sort((a, b) => {
         if (a.name > b.name) return 1;
         if (a.name < b.name) return -1;
       });
-      arrayProduct = handleArrayPagination(arrayFlattenAsc, 6, typeOfFilter);
-      renderCardItem(currentPagination);
+      array = handleArrayPagination(arrayFlattenAsc, 6, typeOfFilter);
+      renderCardItem(currentPagination, array);
       break;
     case "desc":
-      const arrayFlattenDesc = arrayProduct.flat().sort((a, b) => {
+      const arrayFlattenDesc = array.flat().sort((a, b) => {
         if (a.name > b.name) return -1;
         if (a.name < b.name) return 1;
       });
-      arrayProduct = handleArrayPagination(arrayFlattenDesc, 6, typeOfFilter);
-      renderCardItem(currentPagination);
+      array = handleArrayPagination(arrayFlattenDesc, 6, typeOfFilter);
+      renderCardItem(currentPagination, array);
       break;
     default:
       break;
   }
-
-  console.log(arrayProduct);
 };
 
 // Add event listener
@@ -195,15 +221,19 @@ const buttonSortByAlphabet = document.querySelector(".product__categories--btn__
 const iconSortByAZ = document.querySelector(".icon__sort-a-z");
 const iconSortByZA = document.querySelector(".icon__sort-z-a");
 buttonSortByAlphabet.addEventListener("click", function (e) {
+  const inputSearchProduct = document.querySelector(".product__categories--input");
+  inputSearchProduct.value = "";
   if (iconSortByAZ.style.display === "block") {
     iconSortByAZ.style.display = "none";
     iconSortByZA.style.display = "block";
-    handleArrayProductSortByAlphabet("desc");
+    handleArrayProductSortByAlphabet("desc", arrayProduct);
   } else if (iconSortByAZ.style.display === "none") {
     iconSortByAZ.style.display = "block";
     iconSortByZA.style.display = "none";
-    handleArrayProductSortByAlphabet("asc");
+    handleArrayProductSortByAlphabet("asc", arrayProduct);
   }
+  handleCardMenuButtons();
+  handleButtonLikeAndAdd();
 });
 
 // Handle filter product (filter type product)
@@ -230,7 +260,7 @@ productCategoriesLink.forEach((link) => {
     currentPagination = 1;
 
     // Render card and sort by "asc"
-    handleArrayProductSortByAlphabet("asc");
+    handleArrayProductSortByAlphabet("asc", arrayProduct);
 
     // Change icon sort by
     iconSortByAZ.style.display = "block";
@@ -246,6 +276,7 @@ productCategoriesLink.forEach((link) => {
     handleButtonPagePagination();
     handleButtonPre();
     handleButtonNext();
+    handleCardMenuButtons();
   });
 });
 
@@ -281,8 +312,9 @@ const handleButtonPagePagination = function () {
     button.addEventListener("click", function (e) {
       currentPagination = Number(e.target.closest(".product__btn--pagination").textContent);
       activeButton(currentPagination);
-      renderCardItem(currentPagination);
+      renderCardItem(currentPagination, arrayProduct);
       handleCardMenuButtons();
+      handleButtonLikeAndAdd();
       handleButtonPreAndNext();
     });
   });
@@ -295,8 +327,9 @@ const handleButtonPre = function () {
   buttonPrev.addEventListener("click", function (e) {
     currentPagination--;
     activeButton(currentPagination);
-    renderCardItem(currentPagination);
+    renderCardItem(currentPagination, arrayProduct);
     handleCardMenuButtons();
+    handleButtonLikeAndAdd();
     handleButtonPreAndNext();
   });
 };
@@ -308,11 +341,119 @@ const handleButtonNext = function () {
   buttonNext.addEventListener("click", function (e) {
     currentPagination++;
     activeButton(currentPagination);
-    renderCardItem(currentPagination);
+    renderCardItem(currentPagination, arrayProduct);
     handleCardMenuButtons();
+    handleButtonLikeAndAdd();
     handleButtonPreAndNext();
   });
 };
+
+// Button filter
+const btnFilter = document.querySelector(".product__categories--btn__filter");
+const listFilter = document.querySelector(".list__filter");
+const listFilterLinks = document.querySelectorAll(".list__filter--link");
+
+btnFilter.addEventListener("click", function (e) {
+  listFilter.classList.toggle("active");
+  const inputSearchProduct = document.querySelector(".product__categories--input");
+  inputSearchProduct.value = "";
+});
+
+listFilterLinks.forEach((filterLink) => {
+  filterLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    // Active link
+    listFilterLinks.forEach((item) => {
+      if (item === e.target) {
+        item.classList.add("active");
+      } else {
+        item.classList.remove("active");
+      }
+    });
+
+    listFilter.classList.remove("active");
+
+    // Get type filter
+    typeOfFilter = e.target.textContent;
+
+    // Change array product by typeOfFilter
+    arrayProduct = handleArrayPagination(plantData, 6, typeOfFilter);
+
+    // Set currentPagination = 1
+    currentPagination = 1;
+
+    // Render card and sort by "asc"
+    handleArrayProductSortByAlphabet("asc", arrayProduct);
+
+    // Change icon sort by
+    iconSortByAZ.style.display = "block";
+    iconSortByZA.style.display = "none";
+
+    // Render button pagination
+    renderButtonPagination(arrayProduct);
+
+    // Active button
+    activeButton(currentPagination);
+
+    // Handle buttons
+    handleButtonPagePagination();
+    handleButtonPre();
+    handleButtonNext();
+    handleButtonLikeAndAdd();
+  });
+});
+
+// Input (Search product)
+const inputSearchProduct = document.querySelector(".product__categories--input");
+inputSearchProduct.addEventListener("input", function (e) {
+  console.log(e.target.value);
+
+  // Find product
+  let resultProduct = arrayProduct.flat().filter((product) => product.name.toLowerCase().includes(e.target.value.toLowerCase()));
+
+  // Has a product
+  if (resultProduct.length !== 0) {
+    // Change array product by typeOfFilter
+    resultProduct = handleArrayPagination(resultProduct, 6, typeOfFilter);
+
+    // Set currentPagination = 1
+    currentPagination = 1;
+
+    // Render card item
+    renderCardItem(currentPagination, resultProduct);
+
+    // Render card and sort by "asc"
+    handleArrayProductSortByAlphabet("asc", resultProduct);
+
+    // Change icon sort by
+    iconSortByAZ.style.display = "block";
+    iconSortByZA.style.display = "none";
+
+    // Render button pagination
+    renderButtonPagination(resultProduct);
+
+    // Active button
+    activeButton(currentPagination);
+
+    // Handle buttons
+    handleButtonPagePagination();
+    handleButtonPre();
+    handleButtonNext();
+    handleButtonLikeAndAdd();
+
+    console.log(resultProduct);
+    console.log(arrayProduct);
+  }
+  // Not a product
+  else {
+    const productRow = document.querySelector(".product__row");
+    const productPagination = document.querySelector(".product__pagination");
+
+    productPagination.innerHTML = "";
+    productRow.innerHTML = "";
+    productRow.innerHTML = `<p style="text-align:center;">Hông bé ơi. Hông tìm thấy sản phẩm : ${e.target.value} trong danh mục ${typeOfFilter}</p>`;
+  }
+});
 
 const init = function () {
   // Initial arrayProduct
@@ -323,8 +464,9 @@ const init = function () {
 
   // Handle sort by A-Z ,render card and handle card menu
 
-  handleArrayProductSortByAlphabet("asc");
+  handleArrayProductSortByAlphabet("asc", arrayProduct);
   handleCardMenuButtons();
+  handleButtonLikeAndAdd();
 
   // Render button pagination and active it
   renderButtonPagination(arrayProduct);
@@ -343,29 +485,4 @@ init();
 const introButton = document.querySelector(".intro__bottom--btn");
 introButton.addEventListener("click", function (e) {
   window.location.href = "./contact.html";
-});
-
-// Button liked and add (card product)
-const cardButtonLikes = document.querySelectorAll(".card__button--like");
-const cardButtonAdds = document.querySelectorAll(".card__button--add");
-
-cardButtonLikes.forEach((btn) => {
-  btn.addEventListener("click", function (e) {
-    const iconLikeOutline = e.target.closest(".card__button--like").children[0];
-    const iconLikeSolid = e.target.closest(".card__button--like").children[1];
-
-    if (iconLikeOutline.style.display === "block") {
-      iconLikeOutline.style.display = "none";
-      iconLikeSolid.style.display = "block";
-    } else if (iconLikeOutline.style.display === "none") {
-      iconLikeOutline.style.display = "block";
-      iconLikeSolid.style.display = "none";
-    }
-  });
-});
-
-cardButtonAdds.forEach((btn) => {
-  btn.addEventListener("click", function (e) {
-    e.target.closest(".card__button--add").classList.toggle("active");
-  });
 });
