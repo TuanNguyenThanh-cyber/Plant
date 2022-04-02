@@ -124,6 +124,19 @@
   color: var(--dark-green);
 }
 
+.sign__in {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--dark-green);
+  opacity: 0.8;
+  transition: all 1s;
+}
+
+.sign__in:hover {
+  opacity: 1;
+  color: var(--dark-green);
+}
+
 .btn__google {
   display: flex;
   align-items: center;

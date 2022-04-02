@@ -451,7 +451,7 @@ inputSearchProduct.addEventListener("input", function (e) {
 
     productPagination.innerHTML = "";
     productRow.innerHTML = "";
-    productRow.innerHTML = `<p style="text-align:center;">Hông bé ơi. Hông tìm thấy sản phẩm : ${e.target.value} trong danh mục ${typeOfFilter}</p>`;
+    productRow.innerHTML = `<p style="text-align:center;">Âyyyy chết tiệc. Không tìm thấy sản phẩm: ${e.target.value} nào trong danh mục ${typeOfFilter}.</p>`;
   }
 });
 

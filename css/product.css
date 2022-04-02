@@ -446,7 +446,7 @@
 }
 
 /* Responsive */
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
+@media only screen and (max-width: 1024px) {
   /* Intro */
   /* Intro top */
   #intro {
@@ -497,7 +497,8 @@
     justify-content: end;
   }
   .intro__top--right img {
-    width: 85%;
+    margin-left: 50px;
+    width: 90%;
   }
   .intro__detail {
     display: none;
@@ -590,5 +591,127 @@
     row-gap: 50px;
     width: 70%;
     margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  /* Intro */
+  .intro__title {
+    font-size: 24px;
+  }
+  .intro__text {
+    font-size: 12px;
+  }
+  .intro__btn {
+    margin: 30px 0;
+  }
+  .intro__detail--tablet::before {
+    top: -20%;
+    font-size: 6rem;
+  }
+
+  .intro__bottom {
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 30px;
+  }
+
+  .intro__bottom--title {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .intro__bottom--title p {
+    font-size: 26px;
+  }
+
+  .intro__bottom--text {
+    width: 100%;
+    margin-bottom: 30px;
+    font-size: 14px;
+  }
+
+  /* Product categories */
+  #product {
+    padding: 50px 0;
+  }
+  .product__title {
+    font-size: 26px;
+  }
+  .product__categories {
+    flex-direction: column;
+    flex-wrap: wrap;
+    row-gap: 20px;
+  }
+  .product__categories--left__tablet {
+    width: 100%;
+  }
+  .product__categories--input {
+    padding: 10px;
+    padding-right: 40px;
+    width: 100%;
+  }
+  .product__categories--right {
+    width: 100%;
+  }
+  .product__categories--btn__filter {
+    margin-right: 0;
+    padding: 20px;
+  }
+  .product__categories--btn__sort {
+    margin-right: 0;
+    padding: 20px;
+  }
+  .product__pagination {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 20px;
+    column-gap: 20px;
+  }
+  /* Reason */
+  #reason {
+    padding: 50px 0;
+  }
+  .reason__title {
+    font-size: 26px;
+  }
+  .reason__row {
+    width: 100%;
+  }
+  .reason__row .box {
+    display: flex;
+    align-items: center;
+  }
+  .reason__row .box__icon {
+    margin: 0 !important;
+    margin-bottom: 0 !important;
+    margin-right: 20px !important;
+  }
+  .reason__row .box__icon i {
+    font-size: 20px;
+  }
+  .box__title {
+    font-size: 16px;
+    text-align: left !important;
+  }
+  .box__text {
+    font-size: 12px;
+    text-align: left !important;
+  }
+}
+
+@media only screen and (min-width: 500px) and (max-width: 767px) {
+  .intro__title {
+    font-size: 36px;
+  }
+  .intro__text {
+    font-size: 16px;
+  }
+  .intro__bottom--title p {
+    font-size: 32px;
+  }
+
+  .intro__bottom--text {
+    font-size: 16px;
   }
 }

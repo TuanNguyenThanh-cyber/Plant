@@ -96,7 +96,7 @@
         <div id="intro">
             <div class="container">
                 <div class="intro__top">
-                    <div class="intro__top--left col-6">
+                    <div class="intro__top--left col-12 col-sm-12 col-md-6">
                         <p class="intro__title">HOUSEPLANT</p>
                         <p class="intro__title">AIR PURIFIER PLANTS</p>
                         <hr class="dash__line">
@@ -124,7 +124,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="intro__top--right col-6">
+                    <div class="intro__top--right d-none d-md-block col-md-6">
                         <img src="./img/Artboard–5.png" alt="">
                         <div class="intro__notify">
                             <div class="intro__notify--square">
@@ -245,22 +245,28 @@
                         <div class="box__icon" style="margin: 0 auto 25px;">
                             <i class="fa-solid fa-truck"></i>
                         </div>
-                        <p class="box__title text-center">Free shipping</p>
-                        <p class="box__text text-center">On in stocks items ordered by 5pm</p>
+                        <div>
+                            <p class="box__title text-center">Free shipping</p>
+                            <p class="box__text text-center">On in stocks items ordered by 5pm</p>
+                        </div>
                     </div>
                     <div class="box">
                         <div class="box__icon" style="margin: 0 auto 25px;">
                             <i class="fa-solid fa-dollar-sign"></i>
                         </div>
-                        <p class="box__title text-center">Accept Multi Currency</p>
-                        <p class="box__text text-center">On in stocks items ordered by 5pm</p>
+                        <div>
+                            <p class="box__title text-center">Accept Multi Currency</p>
+                            <p class="box__text text-center">On in stocks items ordered by 5pm</p>
+                        </div>
                     </div>
                     <div class="box">
                         <div class="box__icon" style="margin: 0 auto 25px;">
                             <i class="fa-solid fa-gears"></i>
                         </div>
-                        <p class="box__title text-center">Custom & Service</p>
-                        <p class="box__text text-center">Support Online 24/7</p>
+                        <div>
+                            <p class="box__title text-center">Custom & Service</p>
+                            <p class="box__text text-center">Support Online 24/7</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -271,27 +277,31 @@
             <div class="container">
                 <footer class="py-5">
                     <div class="row">
-                        <div class="col-3">
-                            <a href="#"><img src="./img/LOGO-06.png" alt="" class="footer__logo"></a>
-                            <p class="footer__text">Empowering all people to be plant </p>
-                            <p class="footer__text">people a collection of articles </p>
-                            <div class="d-flex align-items-center">
-                                <div class="footer__circle--icon">
-                                    <i class="fa-brands fa-facebook footer__icon"></i>
-                                </div>
-                                <div class="footer__circle--icon">
-                                    <i class="fa-brands fa-twitter footer__icon"></i>
-                                </div>
-                                <div class="footer__circle--icon">
-                                    <i class="fa-brands fa-instagram footer__icon"></i>
-                                </div>
-                                <div class="footer__circle--icon">
-                                    <i class="fa-brands fa-linkedin-in footer__icon"></i>
+                        <div class="col-12 col-sm-12 col-md-3 footer__column--first">
+                            <div>
+                                <a href="#" class="footer__logo--link"><img src="./img/LOGO-06.png" alt=""
+                                        class="footer__logo"></a>
+                                <p class="footer__text footer__column--first__text">Empowering all people to be plant
+                                </p>
+                                <p class="footer__text footer__column--first__text">people a collection of articles </p>
+                                <div class="footer__social">
+                                    <div class="footer__circle--icon">
+                                        <i class="fa-brands fa-facebook footer__icon"></i>
+                                    </div>
+                                    <div class="footer__circle--icon">
+                                        <i class="fa-brands fa-twitter footer__icon"></i>
+                                    </div>
+                                    <div class="footer__circle--icon">
+                                        <i class="fa-brands fa-instagram footer__icon"></i>
+                                    </div>
+                                    <div class="footer__circle--icon">
+                                        <i class="fa-brands fa-linkedin-in footer__icon"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-2">
+                        <div class="col-6 col-sm-6 col-md-2 footer__column--second">
                             <h5 class="footer__title">Navigation</h5>
                             <ul class="nav flex-column">
                                 <li class="nav-item mb-2"><a href="./home.html"
@@ -310,7 +320,7 @@
                             </ul>
                         </div>
 
-                        <div class="col-3">
+                        <div class="col-6 col-sm-6 col-md-3 footer__column--third">
                             <h5 class="footer__title">Information</h5>
                             <ul class="nav flex-column">
                                 <p class="footer__text">Address: 377 Greenwich St., New</p>
@@ -320,15 +330,21 @@
                             </ul>
                         </div>
 
-                        <div class="col-4">
+                        <div class="col-6 col-sm-6 col-md-4 footer__column--last">
+
                             <h5 class="footer__title">Subscribe Us!</h5>
                             <p class="footer__text">Which bears and sustains us, as it floats around</p>
                             <p class="footer__text">us in an eternity of bliss</p>
-                            <div class="w-100">
+                            <div class="footer__subscribe--tablet">
                                 <input type="text" class="input__indented footer__input" placeholder="Email address">
                                 <button class="btn__emerge w-100" type="button">Subscribe</button>
                             </div>
 
+                        </div>
+
+                        <div class="footer__subscribe--mobile">
+                            <input type="text" class="input__indented footer__input" placeholder="Email address">
+                            <button class="btn__emerge w-100" type="button">Subscribe</button>
                         </div>
                     </div>
 
