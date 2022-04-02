@@ -162,7 +162,7 @@ btnLogin.addEventListener("click", function (e) {
       setTimeout(() => {
         formNotice.remove();
         // Login success go to the home page
-        if (handleLoginAccount()) window.location.href = "./home.html";
+        if (handleLoginAccount()) window.location.href = "./index.html";
       }, 1000);
     }, 3000);
   });
